@@ -1,7 +1,9 @@
+import 'package:chat/widgets/custom_login_button.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/bottom_sheet.dart';
 import '../widgets/custom_google_button.dart';
-import '../widgets/custom_text_form.dart';
+import '../widgets/custom_text_feild_email_password.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -11,115 +13,78 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                colors: [
-                  Colors.teal[900]!,
-                  Colors.teal[600]!,
-                  Colors.teal[200]!
-                ],
-              ),
-            ),
+      body: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            colors: [Colors.teal[900]!, Colors.teal[600]!, Colors.teal[200]!],
+          ),
+        ),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const SizedBox(
+            height: 80,
+          ),
+          const Padding(
+            padding: EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 80,
+                Text(
+                  'Login',
+                  style: TextStyle(fontSize: 40, color: Colors.white),
                 ),
-                const Padding(
-                  padding: EdgeInsets.all(20),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  'Welcome Again',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Expanded(
+            child: Container(
+              decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(50),
+                      topRight: Radius.circular(50))),
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(30),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Login',
-                        style: TextStyle(fontSize: 40, color: Colors.white),
+                    children: <Widget>[
+                      const SizedBox(
+                        height: 60,
                       ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        'Welcome Again',
-                        style: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Expanded(
-                  child: Container(
-                    decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(50),
-                            topRight: Radius.circular(50))),
-                    child: SingleChildScrollView(
-                      child: Padding(
-                        padding: const EdgeInsets.all(30),
+                      Container(
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: Color.fromRGBO(225, 95, 27, .3),
+                                  blurRadius: 20,
+                                  offset: Offset(0, 10))
+                            ]),
                         child: Column(
                           children: <Widget>[
-                            const SizedBox(
-                              height: 60,
+                            const CustomTextFeild(
+                              hintText: 'Email',
                             ),
-                            Container(
-                              padding: const EdgeInsets.all(20),
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                  boxShadow: const [
-                                    BoxShadow(
-                                        color: Color.fromRGBO(225, 95, 27, .3),
-                                        blurRadius: 20,
-                                        offset: Offset(0, 10))
-                                  ]),
-                              child: Column(
-                                children: <Widget>[
-                                  Container(
-                                    padding: const EdgeInsets.all(8),
-                                    decoration: BoxDecoration(
-                                        border: Border(
-                                            bottom: BorderSide(
-                                      color: Colors.grey[200]!,
-                                    ))),
-                                    child: const CustomTextFormField(
-                                        hintText: 'Email '),
-                                  ),
-                                  Container(
-                                    // padding: const EdgeInsets.all(8),
-                                    decoration: BoxDecoration(
-                                        border: Border(
-                                            bottom: BorderSide(
-                                      color: Colors.grey[200]!,
-                                    ))),
-                                    child: const CustomTextFormField(
-                                        hintText: 'Password '),
-                                  ),
-                                ],
-                              ),
+                            const CustomTextFeild(
+                              hintText: 'Password',
                             ),
                             const SizedBox(
                               height: 32,
                             ),
-                            Container(
-                              height: 50,
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  color: Colors.teal[600]),
-                              child: const Center(
-                                child: Text(
-                                  "Login",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ),
+                            const CustomLoginButton(text: 'Login'),
                             const SizedBox(
                               height: 16,
                             ),
@@ -134,6 +99,7 @@ class LoginPage extends StatelessWidget {
                                   ),
                                 ),
                                 GestureDetector(
+                                  onTap: () => bottomSheet(context),
                                   child: const Text(
                                     "Sign Up?",
                                     style: TextStyle(color: Colors.grey),
@@ -155,11 +121,15 @@ class LoginPage extends StatelessWidget {
                           ],
                         ),
                       ),
-                    ),
+                    ],
                   ),
                 ),
-              ],
-            )));
+              ),
+            ),
+          ),
+        ]),
+      ),
+    );
   }
-}
 
+}

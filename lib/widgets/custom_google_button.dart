@@ -23,22 +23,26 @@ class CustomGoogleButton extends StatelessWidget {
             padding: const EdgeInsets.all(8),
             decoration: const BoxDecoration(
               image: DecorationImage(
+                opacity: .7,
                 image: AssetImage(
-                    'assets/images/google.png'),
+                    'assets/images/google.png',
+                    
+                    
+                    ),
               ),
             ),
           ),
           const SizedBox(
             width: 8,
           ),
-          Container(
-            child: const Text(
+ const Text(
               "Google",
               style: TextStyle(
                   color: Colors.white,
-                  fontWeight: FontWeight.bold),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16),
             ),
-          ),
+         
         ],
       ),
     );
