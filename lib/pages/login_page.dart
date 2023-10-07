@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 
+import '../widgets/custom_google_button.dart';
 import '../widgets/custom_text_form.dart';
 
 class LoginPage extends StatelessWidget {
@@ -123,17 +123,21 @@ class LoginPage extends StatelessWidget {
                             const SizedBox(
                               height: 16,
                             ),
-                            const Row(
+                            Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  "Forgot Password?",
-                                  style: TextStyle(color: Colors.grey),
+                                GestureDetector(
+                                  child: const Text(
+                                    "Forgot Password?",
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
                                 ),
-                                Text(
-                                  "Sign Up?",
-                                  style: TextStyle(color: Colors.grey),
+                                GestureDetector(
+                                  child: const Text(
+                                    "Sign Up?",
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
                                 ),
                               ],
                             ),
@@ -147,39 +151,7 @@ class LoginPage extends StatelessWidget {
                             const SizedBox(
                               height: 30,
                             ),
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                color: Colors.blue,
-                              ),
-                              height: 50,
-                              width: double.infinity,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 40,
-                                    width: 40,
-                                   padding: const EdgeInsets.all(8),
-                                    decoration: const BoxDecoration(
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/google.png'),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 8,),
-                                  Container(
-                                    child: const Text(
-                                      "Google",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            const CustomGoogleButton(),
                           ],
                         ),
                       ),
@@ -190,3 +162,4 @@ class LoginPage extends StatelessWidget {
             )));
   }
 }
+
