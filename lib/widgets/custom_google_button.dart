@@ -10,7 +10,7 @@ class CustomGoogleButton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
-        color: Colors.blue,
+        color: Colors.red,
       ),
       height: 50,
       width: double.infinity,
@@ -25,24 +25,19 @@ class CustomGoogleButton extends StatelessWidget {
               image: DecorationImage(
                 opacity: .7,
                 image: AssetImage(
-                    'assets/images/google.png',
-                    
-                    
-                    ),
+                  'assets/images/google.png',
+                ),
               ),
             ),
           ),
           const SizedBox(
             width: 8,
           ),
- const Text(
-              "Google",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16),
-            ),
-         
+          const Text(
+            "Google",
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+          ),
         ],
       ),
     );
