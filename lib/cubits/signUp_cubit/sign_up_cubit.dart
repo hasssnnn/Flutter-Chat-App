@@ -7,10 +7,13 @@ part 'sign_up_state.dart';
 class SignUpCubit extends Cubit<SignUpState> {
   SignUpCubit() : super(SignUpInitial());
 
-  Future<void> signUp({required String email, required String password})async {
+  UserCredential? user;
+
+  Future<void> signUpUser(
+      {required String email, required String password}) async {
+    emit(SignUpLoading());
     try {
-      emit(SignUpLoading());
-      UserCredential credential =
+       user =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
@@ -24,7 +27,11 @@ class SignUpCubit extends Cubit<SignUpState> {
             errorMessage: 'The account already exists for that email.'));
       }
     } catch (e) {
-      SignUpFailure(errorMessage: 'There was an error, try again');
+      SignUpFailure(errorMessage: e.toString());
     }
+    
+      }
+      
+    
   }
-}
+

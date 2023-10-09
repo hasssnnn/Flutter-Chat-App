@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
 
-class BottomSheetTextField extends StatelessWidget {
-  const BottomSheetTextField({
+class SignUpTextField extends StatelessWidget {
+  const SignUpTextField({
     super.key,
     required this.label,
-    this.onSaved,
+ this.onChanged,
   });
+  final void Function(String)? onChanged;
   final String label;
-  final void Function(String?)? onSaved;
   String? _validateInput(String? value) {
     if (value?.isEmpty ?? true) {
       return 'Field is required';
     }
+    
     return null;
   }
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onSaved: onSaved,
+      
+      onChanged: onChanged,
       validator: _validateInput,
       decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(

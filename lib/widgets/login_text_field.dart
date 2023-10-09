@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-import 'custom_text_form.dart';
+import 'login_text_form.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
-    super.key, required this.hintText,
+    super.key, required this.hintText, this.onChanged,
   });
 
   final String hintText;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +19,11 @@ class CustomTextField extends StatelessWidget {
               bottom: BorderSide(
         color: Colors.grey[200]!,
       ))),
-      child:  CustomTextFormField(
-          hintText: hintText),
+      child:  LoginTextFormField(
+          hintText: hintText,
+          onChanged: onChanged,
+          
+          ),
     );
   }
 }
