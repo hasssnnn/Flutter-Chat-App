@@ -1,5 +1,6 @@
 import 'package:chat/cubits/login/login_cubit.dart';
 import 'package:chat/pages/chat_page.dart';
+import 'package:chat/services/sign_in_google.dart';
 import 'package:chat/widgets/custom_login_signUp_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -169,7 +170,9 @@ class LoginPage extends StatelessWidget {
                                         const SizedBox(
                                           height: 30,
                                         ),
-                                        const CustomGoogleButton(),
+                                         CustomGoogleButton(
+                                          onTap: ()async => await signInWithGoogle() ,
+                                         ),
                                       ],
                                     ),
                                   ),

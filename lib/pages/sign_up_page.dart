@@ -1,5 +1,4 @@
 import 'package:chat/cubits/signUp_cubit/sign_up_cubit.dart';
-import 'package:chat/pages/login_page.dart';
 import 'package:chat/widgets/snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
