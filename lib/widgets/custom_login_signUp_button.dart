@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class CustomLoginAndSignUpButton extends StatelessWidget {
   const CustomLoginAndSignUpButton({
-    super.key, required this.text, this.onTap,
+    super.key,
+    required this.text,
+    this.onTap,
   });
   final String text;
   final void Function()? onTap;
@@ -15,20 +17,15 @@ class CustomLoginAndSignUpButton extends StatelessWidget {
         height: 50,
         width: double.infinity,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: Colors.teal[600]),
-        child:  Center(
+            borderRadius: BorderRadius.circular(50), color: Colors.teal[600]),
+        child: Center(
           child: Text(
             text,
             style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                
-                fontSize: 16),
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
           ),
         ),
       ),
     );
   }
 }
-

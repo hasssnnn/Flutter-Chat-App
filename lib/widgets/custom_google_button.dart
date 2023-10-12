@@ -14,7 +14,7 @@ class CustomGoogleButton extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
-          color: Colors.red,
+          color: Colors.blue[600],
         ),
         height: 50,
         width: double.infinity,

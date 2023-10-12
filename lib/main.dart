@@ -30,7 +30,7 @@ class ChatApp extends StatelessWidget {
         routes: {
           LoginPage.id: (context) => LoginPage(),
           SignUpPage.id: (context) => SignUpPage(),
-          ChatPage.id: (context) => const ChatPage()
+          ChatPage.id: (context) =>  ChatPage()
         },
         debugShowCheckedModeBanner: false,
         initialRoute: LoginPage.id,
